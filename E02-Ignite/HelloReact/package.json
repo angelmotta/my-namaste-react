@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "Ignite",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "start": "npx parcel index.html",
+    "build": "npx parcel build index.html"
   },
   "author": "Angel Motta",
   "license": "ISC",
@@ -14,5 +16,10 @@
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
-  }
+  },
+  "browserslist": [
+    "last 2 versions",
+    "not dead",
+    "> 0.2%" 
+  ]
 }
