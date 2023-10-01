@@ -1,0 +1,53 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    background-color: black;
+    align-items: center;
+    padding: 10px;
+}
+
+.left img {
+    width: 50px;
+    height: 100%;
+    object-fit: cover;
+}
+
+button {
+    border: none;
+    background-color: transparent;
+    outline: none;
+}
+
+.center {
+    border-radius: 16px;
+    border: 1px solid #d9d9d9;
+    display: flex;
+    padding: 10px;
+    background-color: white;
+}
+
+.inputSearch {
+    margin-left: 5px;
+    width: 200px;
+    padding: 5px;
+    text-shadow: 1px 1px #fff;
+    border: none;
+}
+
+input:focus {
+    outline: none;
+}
+
+.right {
+    margin-right: 10px;
+}
+
+.right .userDiv img {
+    border-radius: 15%;
+}
