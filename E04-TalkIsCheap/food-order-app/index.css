@@ -52,6 +52,7 @@
 .pic-dish {
     max-width: 100%;
     border-radius: 16px;
+    border: 1px solid black;
     /* max-height: 100%; */
     /* object-fit: contain; */
 }
