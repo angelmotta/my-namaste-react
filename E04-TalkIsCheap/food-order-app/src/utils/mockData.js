@@ -1,9 +1,4 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import baositosLogo from "./assets/baositos_logo.jpeg";
-import rollitosPic from "./assets/rollitos_primavera.jpeg";
-
-dataList = [
+const dataList = [
     {
         id: "13031_2092179265",
         name: "Duo Aeropuerto",
@@ -840,62 +835,4 @@ dataList = [
     },
 ];
 
-const DishCard = (props) => {
-    const { dishData } = props;
-    return (
-        <div className="dish-card">
-            <div className="pic-container">
-                <img
-                    className="pic-dish"
-                    src={"https://images.rappi.pe/products/" + dishData.image}
-                />
-            </div>
-            <div className="dish-description">
-                <h3>{dishData.name}</h3>
-                <p>{dishData.description}</p>
-            </div>
-            <div>
-                <b>S/ {dishData.price}</b>
-            </div>
-        </div>
-    );
-};
-
-const Body = () => {
-    const listDishComponents = dataList.map((dishElem, idx) => (
-        <DishCard key={dishElem.id} dishData={dishElem} />
-    ));
-    console.log(listDishComponents);
-    return (
-        <div className="body">
-            <div className="search-container">Search Bar</div>
-            <div className="dishes-container">{listDishComponents}</div>
-        </div>
-    );
-};
-
-const Header = () => (
-    <div className="header">
-        <div className="logo">
-            <img src={baositosLogo}></img>
-            <div>Baositos</div>
-        </div>
-        <div className="navbar">
-            <ul>
-                <li>Nosotros</li>
-                <li>La carta</li>
-                <li>Pedidos</li>
-            </ul>
-        </div>
-    </div>
-);
-
-const MainApp = () => (
-    <div className="app">
-        <Header />
-        <Body />
-    </div>
-);
-
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<MainApp />);
+export default dataList;
