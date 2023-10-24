@@ -56,3 +56,13 @@
     /* max-height: 100%; */
     /* object-fit: contain; */
 }
+
+.filter-btn {
+    margin: 10px;
+    cursor: pointer;
+}
+
+.price-rating-div {
+    display: flex;
+    justify-content: space-between;
+}

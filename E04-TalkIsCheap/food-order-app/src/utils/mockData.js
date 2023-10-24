@@ -17,6 +17,7 @@ const dataList = [
         corridor_index: 1,
         real_price: 65.6,
         price: 65.6,
+        avgRating: "3.8",
         schedules: [
             {
                 open_time: "10:30:00",
@@ -85,6 +86,7 @@ const dataList = [
         corridor_index: 1,
         real_price: 55.6,
         price: 55.6,
+        avgRating: "4.8",
         schedules: [
             {
                 open_time: "10:30:00",
@@ -153,6 +155,7 @@ const dataList = [
         corridor_index: 1,
         real_price: 61.6,
         price: 61.6,
+        avgRating: "4.2",
         schedules: [
             {
                 open_time: "10:30:00",
@@ -221,6 +224,7 @@ const dataList = [
         corridor_index: 1,
         real_price: 27.7,
         price: 27.7,
+        avgRating: "3.2",
         schedules: [
             {
                 open_time: "10:30:00",
@@ -284,6 +288,7 @@ const dataList = [
         corridor_index: 1,
         real_price: 27.7,
         price: 27.7,
+        avgRating: "5.0",
         schedules: [
             {
                 open_time: "10:30:00",
@@ -347,6 +352,7 @@ const dataList = [
         corridor_index: 1,
         real_price: 28.7,
         price: 28.7,
+        avgRating: "4.9",
         schedules: [
             {
                 open_time: "10:30:00",
@@ -410,6 +416,7 @@ const dataList = [
         corridor_index: 1,
         real_price: 27.7,
         price: 27.7,
+        avgRating: "3.4",
         schedules: [
             {
                 open_time: "10:30:00",
@@ -473,6 +480,7 @@ const dataList = [
         corridor_index: 1,
         real_price: 27.7,
         price: 27.7,
+        avgRating: "3.8",
         schedules: [
             {
                 open_time: "10:30:00",
@@ -536,6 +544,7 @@ const dataList = [
         corridor_index: 1,
         real_price: 54.9,
         price: 54.9,
+        avgRating: "4.3",
         schedules: [
             {
                 open_time: "10:30:00",
@@ -599,6 +608,7 @@ const dataList = [
         corridor_index: 1,
         real_price: 37.8,
         price: 37.8,
+        avgRating: "3.1",
         schedules: [
             {
                 open_time: "10:30:00",
@@ -662,6 +672,7 @@ const dataList = [
         corridor_index: 1,
         real_price: 61.6,
         price: 61.6,
+        avgRating: "3.9",
         schedules: [
             {
                 open_time: "10:30:00",
@@ -725,6 +736,7 @@ const dataList = [
         corridor_index: 1,
         real_price: 90,
         price: 90,
+        avgRating: "3.9",
         schedules: [
             {
                 open_time: "10:30:00",
@@ -788,6 +800,7 @@ const dataList = [
         corridor_index: 1,
         real_price: 117.77,
         price: 117.77,
+        avgRating: "3.5",
         schedules: [
             {
                 open_time: "10:30:00",

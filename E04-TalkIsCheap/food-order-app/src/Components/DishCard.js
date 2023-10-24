@@ -2,7 +2,7 @@ import { CDN_URL } from "../utils/constants";
 
 const DishCard = (props) => {
     const { dishData } = props;
-    const { name, description, price } = dishData;
+    const { name, description, price, avgRating } = dishData;
 
     return (
         <div className="dish-card">
@@ -13,8 +13,13 @@ const DishCard = (props) => {
                 <h3>{name}</h3>
                 <p>{description}</p>
             </div>
-            <div>
-                <b>S/ {price}</b>
+            <div className="price-rating-div">
+                <div>
+                    <b>S/ {price}</b>
+                </div>
+                <div>
+                    <p>{avgRating} stars</p>
+                </div>
             </div>
         </div>
     );
