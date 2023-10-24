@@ -1,9 +1,9 @@
 import DishCard from "./DishCard";
-import dataList from "../utils/mockData";
 import { useState, useEffect } from "react";
+import ShimmerContainer from "./Shimmer";
 
 const Body = () => {
-    const [listOfDishes, setListOfDishes] = useState(dataList);
+    const [listOfDishes, setListOfDishes] = useState([]);
     let listDishComponents = listOfDishes.map((dishElem) => (
         <DishCard key={dishElem.id} dishData={dishElem} />
     ));
@@ -56,6 +56,17 @@ const Body = () => {
         }
         console.log(listDishes);
     };
+
+    if (listOfDishes.length === 0) {
+        return (
+            <div className="body">
+                <div className="filter">
+                    <button className="filter-btn">Top Restaurants</button>
+                    <ShimmerContainer />
+                </div>
+            </div>
+        );
+    }
 
     return (
         <div className="body">
