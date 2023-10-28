@@ -11,9 +11,14 @@
     align-items: center; /* y-axis */
 }
 
+/* .navbar {
+    display: flex;
+} */
+
 .navbar > ul {
     list-style-type: none;
     display: flex;
+    align-items: center;
 }
 
 .navbar > ul > li {
@@ -84,4 +89,8 @@
 .price-rating-div {
     display: flex;
     justify-content: space-between;
+}
+
+.btn-login {
+    padding: 5px 10px;
 }

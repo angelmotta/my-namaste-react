@@ -4,6 +4,7 @@ import ShimmerContainer from "./Shimmer";
 
 const Body = () => {
     const [listOfDishes, setListOfDishes] = useState([]);
+
     let listDishComponents = listOfDishes.map((dishElem) => (
         <DishCard key={dishElem.id} dishData={dishElem} />
     ));
@@ -38,7 +39,7 @@ const Body = () => {
             helperSetAvgRating(dishesListChinaWok);
             setListOfDishes(dishesListChinaWok);
         } else {
-            console.log("fetch operation not ok");
+            console.log("fetch operation error");
         }
     };
 
@@ -57,18 +58,14 @@ const Body = () => {
         console.log(listDishes);
     };
 
-    if (listOfDishes.length === 0) {
-        return (
-            <div className="body">
-                <div className="filter">
-                    <button className="filter-btn">Top Restaurants</button>
-                    <ShimmerContainer />
-                </div>
+    return listOfDishes.length === 0 ? (
+        <div className="body">
+            <div className="filter">
+                <button className="filter-btn">Top Restaurants</button>
+                <ShimmerContainer />
             </div>
-        );
-    }
-
-    return (
+        </div>
+    ) : (
         <div className="body">
             <div className="filter">
                 <button
