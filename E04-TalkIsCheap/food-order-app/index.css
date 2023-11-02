@@ -82,13 +82,9 @@
     background-color: whitesmoke;
 }
 
-.filter-container,
-.search-bar {
+.filter-container {
     display: flex;
     align-items: center;
-}
-
-.filter {
     margin: 10px;
 }
 
@@ -109,6 +105,6 @@
 .btn-search {
     border: none;
     background-color: transparent;
-    outline: none;
     cursor: pointer;
+    margin: 3px;
 }

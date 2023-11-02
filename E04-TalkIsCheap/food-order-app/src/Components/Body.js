@@ -2,7 +2,6 @@ import DishCard from "./DishCard";
 import { useState, useEffect } from "react";
 import ShimmerContainer from "./Shimmer";
 import Filter from "./Filter";
-import { IconSearch } from "@tabler/icons-react";
 
 const Body = () => {
     const [listOfDishes, setListOfDishes] = useState([]);

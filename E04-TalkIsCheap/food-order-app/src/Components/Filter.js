@@ -1,3 +1,4 @@
+import { IconSearch } from "@tabler/icons-react";
 import { useState } from "react";
 const Filter = ({ listOfDishes, filteredList, setFilteredList }) => {
     const [searchText, setSearchText] = useState("");
@@ -27,10 +28,21 @@ const Filter = ({ listOfDishes, filteredList, setFilteredList }) => {
                     console.log(resFilteredList);
                 }}
             >
-                {/* <IconSearch /> */}
-                buscar
+                <IconSearch />
+                {/* buscar */}
             </button>
-            <button className="filter-btn">Top Restaurants</button>
+            <button
+                className="filter-btn"
+                onClick={() => {
+                    const filteredList = listOfDishes.filter(
+                        (elem) => elem.avgRating > 4
+                    );
+                    console.log(filteredList);
+                    setFilteredList(filteredList);
+                }}
+            >
+                Top Restaurants
+            </button>
         </div>
     );
 };
