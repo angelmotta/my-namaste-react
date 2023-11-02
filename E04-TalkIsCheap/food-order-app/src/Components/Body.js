@@ -7,6 +7,7 @@ const Body = () => {
     const [listOfDishes, setListOfDishes] = useState([]);
     const [filteredList, setFilteredList] = useState([]);
 
+    // Creation of Components based on 'filteredList' state
     let listDishComponents = filteredList.map((dishElem) => (
         <DishCard key={dishElem.id} dishData={dishElem} />
     ));
@@ -65,7 +66,6 @@ const Body = () => {
         <div className="body">
             <Filter
                 listOfDishes={listOfDishes}
-                filteredList={filteredList}
                 setFilteredList={setFilteredList}
             />
             <ShimmerContainer />
@@ -74,7 +74,6 @@ const Body = () => {
         <div className="body">
             <Filter
                 listOfDishes={listOfDishes}
-                filteredList={filteredList}
                 setFilteredList={setFilteredList}
             />
             <div className="dishes-container">{listDishComponents}</div>

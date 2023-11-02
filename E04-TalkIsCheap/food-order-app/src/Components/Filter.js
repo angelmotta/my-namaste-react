@@ -1,6 +1,6 @@
 import { IconSearch } from "@tabler/icons-react";
 import { useState } from "react";
-const Filter = ({ listOfDishes, filteredList, setFilteredList }) => {
+const Filter = ({ listOfDishes, setFilteredList }) => {
     const [searchText, setSearchText] = useState("");
 
     return (
