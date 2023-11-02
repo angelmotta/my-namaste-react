@@ -6,8 +6,9 @@ import { IconSearch } from "@tabler/icons-react";
 
 const Body = () => {
     const [listOfDishes, setListOfDishes] = useState([]);
+    const [filteredList, setFilteredList] = useState([]);
 
-    let listDishComponents = listOfDishes.map((dishElem) => (
+    let listDishComponents = filteredList.map((dishElem) => (
         <DishCard key={dishElem.id} dishData={dishElem} />
     ));
 
@@ -40,6 +41,7 @@ const Body = () => {
             const dishesListChinaWok = dataObj?.corridors[0]?.products;
             helperSetAvgRating(dishesListChinaWok);
             setListOfDishes(dishesListChinaWok);
+            setFilteredList(dishesListChinaWok);
         } else {
             console.log("fetch operation error");
         }
@@ -64,7 +66,8 @@ const Body = () => {
         <div className="body">
             <Filter
                 listOfDishes={listOfDishes}
-                setListOfDishes={setListOfDishes}
+                filteredList={filteredList}
+                setFilteredList={setFilteredList}
             />
             <ShimmerContainer />
         </div>
@@ -72,7 +75,8 @@ const Body = () => {
         <div className="body">
             <Filter
                 listOfDishes={listOfDishes}
-                setListOfDishes={setListOfDishes}
+                filteredList={filteredList}
+                setFilteredList={setFilteredList}
             />
             <div className="dishes-container">{listDishComponents}</div>
         </div>

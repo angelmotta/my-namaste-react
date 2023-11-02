@@ -1,5 +1,5 @@
 import { useState } from "react";
-const Filter = ({ listOfDishes, setListOfDishes }) => {
+const Filter = ({ listOfDishes, filteredList, setFilteredList }) => {
     const [searchText, setSearchText] = useState("");
 
     return (
@@ -16,14 +16,15 @@ const Filter = ({ listOfDishes, setListOfDishes }) => {
                 className="btn-search"
                 onClick={() => {
                     console.log("search:", searchText);
-                    const filteredList = [];
+                    const resFilteredList = [];
                     listOfDishes.forEach((element) => {
                         let nameDish = element.name.toLowerCase();
                         if (nameDish.includes(searchText)) {
-                            filteredList.push(element);
+                            resFilteredList.push(element);
                         }
                     });
-                    setListOfDishes(filteredList);
+                    setFilteredList(resFilteredList);
+                    console.log(resFilteredList);
                 }}
             >
                 {/* <IconSearch /> */}
