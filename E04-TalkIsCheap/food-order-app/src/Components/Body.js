@@ -1,6 +1,8 @@
 import DishCard from "./DishCard";
 import { useState, useEffect } from "react";
 import ShimmerContainer from "./Shimmer";
+import Filter from "./Filter";
+import { IconSearch } from "@tabler/icons-react";
 
 const Body = () => {
     const [listOfDishes, setListOfDishes] = useState([]);
@@ -60,27 +62,18 @@ const Body = () => {
 
     return listOfDishes.length === 0 ? (
         <div className="body">
-            <div className="filter">
-                <button className="filter-btn">Top Restaurants</button>
-                <ShimmerContainer />
-            </div>
+            <Filter
+                listOfDishes={listOfDishes}
+                setListOfDishes={setListOfDishes}
+            />
+            <ShimmerContainer />
         </div>
     ) : (
         <div className="body">
-            <div className="filter">
-                <button
-                    className="filter-btn"
-                    onClick={() => {
-                        let filteredList = listOfDishes.filter(
-                            (elem) => elem.avgRating > 4
-                        );
-                        console.log(filteredList);
-                        setListOfDishes(filteredList);
-                    }}
-                >
-                    Top Restaurants
-                </button>
-            </div>
+            <Filter
+                listOfDishes={listOfDishes}
+                setListOfDishes={setListOfDishes}
+            />
             <div className="dishes-container">{listDishComponents}</div>
         </div>
     );
