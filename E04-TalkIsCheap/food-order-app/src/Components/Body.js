@@ -7,12 +7,15 @@ const Body = () => {
     const [listOfDishes, setListOfDishes] = useState([]);
     const [filteredList, setFilteredList] = useState([]);
 
+    console.log(`Render body component`);
+
     // Creation of Components based on 'filteredList' state
     let listDishComponents = filteredList.map((dishElem) => (
         <DishCard key={dishElem.id} dishData={dishElem} />
     ));
 
     useEffect(() => {
+        console.log(`useEffect called: fetchData`);
         fetchData();
     }, []);
 

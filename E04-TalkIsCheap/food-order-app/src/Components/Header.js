@@ -4,6 +4,9 @@ import { useState } from "react";
 const Header = () => {
     const [isLoged, setIsLoged] = useState(false);
     let btnName = isLoged ? "Logout" : "Login";
+
+    console.log("render Header");
+
     return (
         <div className="header">
             <div className="logo">
