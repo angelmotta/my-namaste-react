@@ -108,3 +108,9 @@
     cursor: pointer;
     margin: 3px;
 }
+
+.link {
+    text-decoration: none;
+    color: black;
+    /* margin: 10px; */
+}

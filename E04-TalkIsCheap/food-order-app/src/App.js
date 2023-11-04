@@ -4,12 +4,13 @@ import Header from "./Components/Header";
 import Body from "./Components/Body";
 import Nosotros from "./Components/Nosotros";
 import Error from "./Components/Error";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Pedidos from "./Components/Pedidos";
+import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 
 const MainApp = () => (
     <div className="app">
         <Header />
-        <Body />
+        <Outlet />
     </div>
 );
 
@@ -17,11 +18,21 @@ const routerApp = createBrowserRouter([
     {
         path: "/",
         element: <MainApp />,
+        children: [
+            {
+                path: "/",
+                element: <Body />,
+            },
+            {
+                path: "/nosotros",
+                element: <Nosotros />,
+            },
+            {
+                path: "/pedidos",
+                element: <Pedidos />,
+            },
+        ],
         errorElement: <Error />,
-    },
-    {
-        path: "/nosotros",
-        element: <Nosotros />,
     },
 ]);
 
