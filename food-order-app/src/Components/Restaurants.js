@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import RestaurantCard from "./RestaurantCard";
+import { RESTAURANTS_URL } from "../utils/constants";
+import { Link } from "react-router-dom";
 
 const myrest = {
     id: "13031",
@@ -32,6 +34,20 @@ const Restaurants = () => {
 
     const fetchRestData = async () => {
         console.log(`fetch restData`);
+        const dataRestaurants = await fetch(RESTAURANTS_URL, {
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: process.env.API_KEY,
+            },
+        });
+        if (dataRestaurants.ok) {
+            const restData = await dataRestaurants.json();
+            const listRestObjs = restData?.widgets[2]?.data;
+            console.log(listRestObjs);
+            setListRestaurants(listRestObjs);
+        } else {
+            console.log(`fetch resData error`);
+        }
     };
 
     return listRestaurants.length === 0 ? (
@@ -42,7 +58,16 @@ const Restaurants = () => {
         <div className="body">
             {/* <Filter /> */}
             <div className="restaurants-container">
-                <RestaurantCard restData={myrest} />
+                {listRestaurants.map((restObj) => (
+                    <Link
+                        key={restObj.id}
+                        to={`/restaurants/${restObj.id}`}
+                        className="link"
+                    >
+                        <RestaurantCard restData={restObj} />
+                    </Link>
+                ))}
+                {/* <RestaurantCard restData={myrest} /> */}
             </div>
         </div>
     );

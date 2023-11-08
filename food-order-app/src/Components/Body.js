@@ -2,10 +2,13 @@ import DishCard from "./DishCard";
 import { useState, useEffect } from "react";
 import ShimmerContainer from "./Shimmer";
 import Filter from "./Filter";
+import { useParams } from "react-router-dom";
+import { RESTAURANT_MENU_URL } from "../utils/constants";
 
 const Body = () => {
     const [listOfDishes, setListOfDishes] = useState([]);
     const [filteredList, setFilteredList] = useState([]);
+    const { restId } = useParams();
 
     console.log(`Render body component`);
 
@@ -20,25 +23,22 @@ const Body = () => {
     }, []);
 
     const fetchData = async () => {
-        const dataRes = await fetch(
-            "https://services.rappi.pe/api/web-gateway/web/restaurants-bus/store/id/13031/",
-            {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    Authorization: process.env.API_KEY,
+        const dataRes = await fetch(RESTAURANT_MENU_URL + restId + "/", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: process.env.API_KEY,
+            },
+            body: JSON.stringify({
+                lat: -12.1613522,
+                lng: -76.9697293,
+                store_type: "restaurant",
+                is_prime: false,
+                prime_config: {
+                    unlimited_shipping: false,
                 },
-                body: JSON.stringify({
-                    lat: -12.1613522,
-                    lng: -76.9697293,
-                    store_type: "restaurant",
-                    is_prime: false,
-                    prime_config: {
-                        unlimited_shipping: false,
-                    },
-                }),
-            }
-        );
+            }),
+        });
         if (dataRes.ok) {
             const dataObj = await dataRes.json();
             const dishesListChinaWok = dataObj?.corridors[0]?.products;
