@@ -1,8 +1,12 @@
+import User from "./User";
+import UserClass from "./UserClass";
+
 const Nosotros = () => {
     return (
         <div>
-            <h1>Nosotros</h1>
-            <h2>Nuestra historia...</h2>
+            <h1>El team</h1>
+            <User name={"Angel Motta (func)"} />
+            <UserClass name={"Angel Motta (cl)"} location={"Lima, Perú"} />
         </div>
     );
 };
