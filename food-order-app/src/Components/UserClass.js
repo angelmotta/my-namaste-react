@@ -9,6 +9,11 @@ class UserClass extends React.Component {
         };
     }
 
+    componentDidMount() {
+        console.log(`UserClass Component Did Mount!`);
+        // API Calls here
+    }
+
     render() {
         const { name, location } = this.props;
         const { followers, following } = this.state;

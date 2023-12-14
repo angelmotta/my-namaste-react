@@ -1,8 +1,13 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const User = ({ name }) => {
     const [followers, setFollwers] = useState(10);
     const [following, setFollowing] = useState(0);
+
+    useEffect(() => {
+        console.log(`UserFunctional component Did Mount!`);
+        // API Calls here
+    });
 
     return (
         <div className="user-card">
