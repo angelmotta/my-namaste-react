@@ -5,10 +5,11 @@ const User = ({ name }) => {
     const [following, setFollowing] = useState(0);
 
     useEffect(() => {
-        console.log(`UserFunctional component Did Mount!`);
+        console.log(`Child UserFunctional Component: useEffect`);
         // API Calls here
     });
 
+    console.log(`Child UserFunctional Component: return called (Render)`);
     return (
         <div className="user-card">
             <h4>Name: {name}</h4>

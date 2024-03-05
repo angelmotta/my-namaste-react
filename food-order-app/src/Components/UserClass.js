@@ -7,14 +7,18 @@ class UserClass extends React.Component {
             followers: 100,
             following: 200,
         };
+        console.log(
+            `${this.props.name} Child Constructor UserClass components called`
+        );
     }
 
     componentDidMount() {
-        console.log(`UserClass Component Did Mount!`);
+        console.log(`${this.props.name} Child UserClass Component Did Mount!`);
         // API Calls here
     }
 
     render() {
+        console.log(`${this.props.name} - Child Render UserClass component`);
         const { name, location } = this.props;
         const { followers, following } = this.state;
         return (
