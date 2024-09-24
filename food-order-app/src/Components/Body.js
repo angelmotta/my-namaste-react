@@ -1,85 +1,74 @@
-import DishCard from "./DishCard";
-import { useState, useEffect } from "react";
-import ShimmerContainer from "./Shimmer";
-import Filter from "./Filter";
-import { useParams } from "react-router-dom";
-import { RESTAURANT_MENU_URL } from "../utils/constants";
+import { useEffect, useState } from "react";
+import RestaurantCard from "./RestaurantCard";
+import { RESTAURANTS_URL } from "../utils/constants";
+import { Link } from "react-router-dom";
+
+const myrest = {
+    id: "13031",
+    title: "Chinawok - Chifa",
+    image: "restaurants_background/pechinawok-1665756112379.jpg",
+    hidden: false,
+    full_image:
+        "https://images.rappi.pe/restaurants_background/pechinawok-1665756112379.jpg",
+    additional_information: {
+        store_id: 13031,
+        store_type: "restaurant",
+        eta: "30 min",
+        guest_enabled: true,
+        home_type: "by_stores",
+        deep_link: {
+            store_id: "13031",
+            brand_name: "Chinawok - Chifa",
+            store_type: "restaurant",
+        },
+    },
+};
 
 const Body = () => {
-    const [listOfDishes, setListOfDishes] = useState([]);
-    const [filteredList, setFilteredList] = useState([]);
-    const { restId } = useParams();
-
-    console.log(`Render body component`);
-
-    // Creation of Components based on 'filteredList' state
-    let listDishComponents = filteredList.map((dishElem) => (
-        <DishCard key={dishElem.id} dishData={dishElem} />
-    ));
+    const [listRestaurants, setListRestaurants] = useState([]);
 
     useEffect(() => {
-        console.log(`useEffect called: fetchData`);
-        fetchData();
+        console.log(`useEffect called: fetchDataRestaurants`);
+        fetchRestData();
     }, []);
 
-    const fetchData = async () => {
-        const dataRes = await fetch(RESTAURANT_MENU_URL + restId + "/", {
-            method: "POST",
+    const fetchRestData = async () => {
+        console.log(`fetch restData`);
+        const dataRestaurants = await fetch(RESTAURANTS_URL, {
             headers: {
                 "Content-Type": "application/json",
                 Authorization: process.env.API_KEY,
             },
-            body: JSON.stringify({
-                lat: -12.1613522,
-                lng: -76.9697293,
-                store_type: "restaurant",
-                is_prime: false,
-                prime_config: {
-                    unlimited_shipping: false,
-                },
-            }),
         });
-        if (dataRes.ok) {
-            const dataObj = await dataRes.json();
-            const dishesListChinaWok = dataObj?.corridors[0]?.products;
-            helperSetAvgRating(dishesListChinaWok);
-            setListOfDishes(dishesListChinaWok);
-            setFilteredList(dishesListChinaWok);
+        if (dataRestaurants.ok) {
+            const restData = await dataRestaurants.json();
+            const listRestObjs = restData?.widgets[2]?.data;
+            console.log(listRestObjs);
+            setListRestaurants(listRestObjs);
         } else {
-            console.log("fetch operation error");
+            console.log(`fetch resData error`);
         }
     };
 
-    const helperSetAvgRating = (listDishes) => {
-        for (const dish of listDishes) {
-            let myrand = Math.random() * 5;
-            let myrandAvg = Math.round(myrand * 100) / 100;
-            if (myrandAvg < 2) {
-                console.log(myrandAvg);
-                myrandAvg = myrandAvg + 2.0;
-                myrandAvg = Math.round(myrandAvg * 100) / 100;
-                console.log(myrandAvg);
-            }
-            dish.avgRating = myrandAvg;
-        }
-        console.log(listDishes);
-    };
-
-    return listOfDishes.length === 0 ? (
+    return listRestaurants.length === 0 ? (
         <div className="body">
-            <Filter
-                listOfDishes={listOfDishes}
-                setFilteredList={setFilteredList}
-            />
-            <ShimmerContainer />
+            <div className="restaurants-container">Loading...</div>
         </div>
     ) : (
         <div className="body">
-            <Filter
-                listOfDishes={listOfDishes}
-                setFilteredList={setFilteredList}
-            />
-            <div className="dishes-container">{listDishComponents}</div>
+            {/* <Filter /> */}
+            <div className="restaurants-container">
+                {listRestaurants.map((restObj) => (
+                    <Link
+                        key={restObj.id}
+                        to={`/restaurants/${restObj.id}`}
+                        className="link"
+                    >
+                        <RestaurantCard restData={restObj} />
+                    </Link>
+                ))}
+                {/* <RestaurantCard restData={myrest} /> */}
+            </div>
         </div>
     );
 };

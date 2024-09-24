@@ -41,7 +41,7 @@ const Filter = ({ listOfDishes, setFilteredList }) => {
                     setFilteredList(filteredList);
                 }}
             >
-                Top Restaurants
+                Platos top
             </button>
         </div>
     );

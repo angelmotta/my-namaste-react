@@ -1,12 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./Components/Header";
-import Body from "./Components/Body";
+import RestaurantMenu from "./Components/RestaurantMenu";
 import Nosotros from "./Components/Nosotros";
 import Error from "./Components/Error";
 import Pedidos from "./Components/Pedidos";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
-import Restaurants from "./Components/Restaurants";
+import Body from "./Components/Body";
 
 const MainApp = () => (
     <div className="app">
@@ -22,11 +22,11 @@ const routerApp = createBrowserRouter([
         children: [
             {
                 path: "/",
-                element: <Restaurants />,
+                element: <Body />,
             },
             {
                 path: "/restaurants/:restId",
-                element: <Body />,
+                element: <RestaurantMenu />,
             },
             {
                 path: "/nosotros",
