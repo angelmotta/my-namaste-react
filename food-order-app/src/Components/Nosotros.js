@@ -20,8 +20,6 @@ class Nosotros extends React.Component {
                 <h1>Nosotros Class component</h1>
                 {/* <User name={"Angel Motta (func)"} /> */}
                 <UserClass name={"Angel Motta (cl)"} location={"Lima, Perú"} />
-                <UserClass name={"Jose Vega (cl)"} location={"Lima, Perú"} />
-                <UserClass name={"Mayra Chavez (cl)"} location={"Lima, Perú"} />
             </div>
         );
     }
